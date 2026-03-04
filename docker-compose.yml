@@ -18,7 +18,7 @@ services:
       - sql
   
   sql:
-    image: mysql
+    image: mysql:8.0
     container_name: sql-cont
     ports:
       - "3306:3306"
