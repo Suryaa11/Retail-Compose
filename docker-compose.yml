@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  retail-web:
+    image: suryaa112003/retail-app:v1.1.0
+    container_name: retail-cont
+    ports:
+      - "82:3000"
+    networks:
+      - retail-network
+    environment:
+      - DB_NAME=capsule_db
+      - DB_HOST=mysql
+      - DB_USER=admin
+      - DB_PASSWORD=admin123
+      - DB_PORT=3306
+    depends_on:
+      - sql
+  
+  sql:
+    image: mysql
+    container_name: sql-cont
+    ports:
+      - "3306:3306"
+    volumes:
+      - sql_data:/var/lib/mysql
+    networks:
+      - retail-network
+    environment:
+      - DB_NAME=capsule_db
+      - DB_HOST=mysql
+      - DB_USER=admin
+      - DB_PASSWORD=admin123
+      - DB_PORT=3306
+
+volumes:
+  sql_data:
+networks:
+  retail-network:
