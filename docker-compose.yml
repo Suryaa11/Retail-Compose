@@ -10,7 +10,7 @@ services:
       - retail-network
     environment:
       - DB_NAME=capsule_db
-      - DB_HOST=mysql
+      - DB_HOST=sql-cont
       - DB_USER=admin
       - DB_PASSWORD=admin123
       - DB_PORT=3306
